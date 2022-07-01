@@ -46,6 +46,26 @@ module.exports = {
         })
     },
 
+    getKillsInfoPlayerID: (idPlayer) => {
+
+        return new Promise(function (resolve, reject) {
+
+            https.get(url + "/players//kills" + idPlayer+"", res => {
+                let data = '';
+                res.on('data', chunk => {
+                    data += chunk;
+                });
+                res.on('end', () => {
+                    data = JSON.parse(data);
+                    resolve(data)
+
+                })
+            }).on('error', err => {
+                reject(err);
+            })
+        })
+    },
+
 
 
 }

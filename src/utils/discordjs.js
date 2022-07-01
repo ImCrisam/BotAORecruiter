@@ -8,9 +8,15 @@ const getMemberById = async (client, idMember) => {
     return member
 };
 
+const deleteMsg = (msg, milisg) => {
+    setTimeout(() => {
+        msg.delete();
+        }, milisg);
+};
+
 module.exports = {
     getMemberById,
-
+    deleteMsg,
     getRolesByMsg: (msg) => {
         if (!msg) return;
         let roles = []
@@ -44,18 +50,20 @@ module.exports = {
 
     changeNickName: (member, tag, nickname) => {
         try {
-            member.setNickname(tag + " " + nickname);
-
+            member.setNickname(tag + nickname);
         } catch (error) {
             console.log(error);
         }
     },
 
-    deleteMsg: (msg, milisg) => {
-        setTimeout(() => {
-            msg.delete();
-            }, milisg);
+    respondeTemp : (msg, res, milisg, plus) => {
+        msg.reply(res).then((m) => {
+            deleteMsg(m, milisg)
+            deleteMsg(msg, milisg+plus)
+        })
     },
+
+    
 
     addReactionYesNo: (msg) => {
         msg.react('✅');

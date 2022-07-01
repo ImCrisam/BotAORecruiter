@@ -5,11 +5,17 @@ module.exports = {
         "992448419358572614": {
             "commands": {
                 "!aplicar": {
-                    "rol": {
+                    "roles": {
                         "none": "apply",
                     },
                     "outChannel":"992448446873227284"
                 },
+                "default": {
+                    "roles":{
+                        "none": "delete"
+                    },
+                    "outChannel":undefined
+                }
 
 
             }

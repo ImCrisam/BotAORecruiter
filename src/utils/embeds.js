@@ -12,9 +12,6 @@ module.exports = {
                     name: user.id,
                     icon_url: user.avatarURL(),
                 },
-                thumbnail: {
-                    url: user.avatarURL()
-                },
 
                 title: infoPlayer.Name,
                 description:"Guild: "+ infoPlayer.GuildName + (infoPlayer.AllianceName?` [${infoPlayer.AllianceName}]`:""),
