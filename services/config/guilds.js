@@ -8,18 +8,32 @@ module.exports = {
                     "roles": {
                         "none": "apply",
                     },
-                    "outChannel":"992448446873227284"
+                    "outChannel": "992448446873227284"
                 },
                 "default": {
-                    "roles":{
+                    "roles": {
                         "none": "delete"
                     },
-                    "outChannel":undefined
+                    "outChannel": undefined
                 }
+            },
 
-
-            }
         },
-    },
+        "992448446873227284": {
+            "reactions": {
+                "apply": {
+                    "✅": {
+                        "action": "apply",
+                        "allowedRoles": ["992528158727360662"],
+                        "memberRol": "992527993614381086"
+                    },
+                    "❌": {
+                        "action": "delete",
+                        "allowedRoles": ["992527972336676936"]
+                    }
+                }
+            }
+        }
 
-};
+    }
+}

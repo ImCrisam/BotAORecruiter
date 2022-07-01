@@ -7,6 +7,7 @@ module.exports = {
 	init: (msg, config) => {
 
 		if(msg.author.bot) return
+		if(!config.commands) return
 
 		const content = msg.content.split(" ");
 		const command= content.shift();

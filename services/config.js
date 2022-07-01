@@ -7,8 +7,5 @@ module.exports = {
         return data[guildID]
     },
 
-    // getConfigReactions: (channelID) => {
-    //     return configReaction[channelID]
-    // }
 
 }

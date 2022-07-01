@@ -1,6 +1,6 @@
-const getMemberById = async (client, idMember) => {
-    let myGuild = client.guilds.cache.get("819930498553217044")
-    if (!myGuild) myGuild = await client.guilds.fetch('819930498553217044');
+const getMemberById = async (client, idMember, idGuid) => {
+    let myGuild = client.guilds.cache.get(idGuid)
+    if (!myGuild) myGuild = await client.guilds.fetch(idGuid);
     if (!myGuild) return undefined;
 
     let member = myGuild.members.cache.get(idMember);
@@ -26,9 +26,9 @@ module.exports = {
         return roles.length === 1 ? ["none"] : roles;
     },
 
-    getRolesById: async (client, idMember) => {
+    getRolesById: async (client, idMember, idGuid) => {
 
-        const user = await getMemberById(client, idMember);
+        const user = await getMemberById(client, idMember, idGuid);
         if (!user) return [];
         let roles = []
         user.roles.cache.map((rol) => {
@@ -50,7 +50,7 @@ module.exports = {
 
     changeNickName: (member, tag, nickname) => {
         try {
-            member.setNickname(tag + nickname);
+            member.setNickname(tag +" "+nickname);
         } catch (error) {
             console.log(error);
         }

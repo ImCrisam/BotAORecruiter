@@ -1,6 +1,6 @@
 require('dotenv').config()
 const commands = require('./src/commands/channel');
-const reaction = require('./src/reactions/init');
+const reaction = require('./src/reactions/channel');
 const Config = require('./services/config');
 
 const prefix = process.env.PREFIX
@@ -23,8 +23,14 @@ client.once('ready', (bot) => {
 
 client.on('messageReactionAdd', (interaction, user) => {
 
-	// if(user.bot) return;
-	// reaction.init(interaction, user, client)
+	if(user.bot) return;
+	const configGuild = Config.getConfigGuild(interaction.message.guildId);
+	if (!configGuild) return;
+
+	const configChannel = configGuild[interaction.message.channelId];
+	if (!configChannel) return;
+
+	reaction.init(client, interaction, user, configChannel)
 });
 
 
