@@ -1,0 +1,10 @@
+node_modules
+.env
+dist
+
+# Log files
+npm-debug.log*
+
+
+# Editor directories and files
+.vscode
