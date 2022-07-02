@@ -5,7 +5,10 @@ module.exports = {
 
 	init: async (Client, interaction, user, config) => {
 
-		if(!config.reactions) return
+		if(!config.reactions){
+			console.log("conf reaction not found");
+			return
+		} 
 		const channelID = interaction.message.channelId;
 
 		const channel = await Client.channels.cache.get(channelID);
@@ -13,15 +16,25 @@ module.exports = {
 
 
 		const confiReaction = msg.content ? config.reactions[msg.content.toLowerCase()][interaction._emoji.name] : undefined
-		if (!confiReaction) return;
+		if (!confiReaction){
+			console.log("conf reaction.action not found");
+			return
+		} 
 
-		if (!Actions.hasOwnProperty(confiReaction.action)) return;
+		if (!Actions.hasOwnProperty(confiReaction.action)) {
+			console.log("action not found");
+			return
+		} 
 
 		let rolesUser =  await Discordjs.getRolesById(Client, user.id, interaction.message.guildId);
 		
-		if(!confiReaction.allowedRoles) return
+		if(!confiReaction.allowedRoles) {
+			console.log("allowedRoles not found");
+			return
+		} 
 		confiReaction.allowedRoles.forEach((rol) => {
 			if(rolesUser.includes(rol)){
+				console.log(rol, " : ", confiReaction.action, " - ", Actions.hasOwnProperty(confiReaction.action));
 				Actions[confiReaction.action](Client, interaction, user, confiReaction)
 				return;
 			}

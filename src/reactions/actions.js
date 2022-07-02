@@ -15,6 +15,8 @@ module.exports = {
                     Discordjs.deleteMsg(msg, 4000);
                    
                 })
+        }else{
+            console.log("fail add rol");
         }
     },
 
