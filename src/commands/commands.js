@@ -52,8 +52,8 @@ module.exports = {
 
     },
 
-    delete: (Client, interaction, user, config) => {
-        Discordjs.respondeTemp(interaction.message, "delete", 2000,1000)
+    delete: (msg, params, channelOut) => {
+        Discordjs.respondeTemp(msg, "delete", 2000,1000)
         
     }
 
