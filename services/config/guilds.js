@@ -1,14 +1,14 @@
 module.exports = {
     //Guild discord
-    "992444605591191552": {
+    "983423285867974666": {
         //Channels
-        "992448419358572614": {
+        "992553089431240766": {
             "commands": {
                 "!aplicar": {
                     "roles": {
                         "none": "apply",
                     },
-                    "outChannel": "992448446873227284"
+                    "outChannel": "992556524276818071"
                 },
                 "default": {
                     "roles": {
@@ -19,17 +19,17 @@ module.exports = {
             },
 
         },
-        "992448446873227284": {
+        "992556524276818071": {
             "reactions": {
                 "apply": {
                     "✅": {
                         "action": "apply",
-                        "allowedRoles": ["992528158727360662"],
-                        "memberRol": "992527993614381086"
+                        "allowedRoles": ["983566313433731072", "992606523849183332"],
+                        "memberRol": "983425697592770651"
                     },
                     "❌": {
                         "action": "delete",
-                        "allowedRoles": ["992527972336676936"]
+                        "allowedRoles": ["983566313433731072"]
                     }
                 }
             }
