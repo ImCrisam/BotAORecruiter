@@ -23,11 +23,13 @@ module.exports = {
             "reactions": {
                 "apply": {
                     "✅": {
+                        "description": "add rol",
                         "action": "apply",
                         "allowedRoles": ["983566313433731072", "992606523849183332"],
                         "memberRol": "983425697592770651"
                     },
                     "❌": {
+                        "description": "delete apply",
                         "action": "delete",
                         "allowedRoles": ["983566313433731072"]
                     }

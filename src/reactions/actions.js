@@ -15,13 +15,16 @@ module.exports = {
                     Discordjs.deleteMsg(msg, 4000);
                    
                 })
+            return true;
         }else{
             console.log("fail add rol");
+            return false;
         }
     },
 
-    delete: (Client, interaction, user, config) => {
+    delete: async(Client, interaction, user, config) => {
         Discordjs.respondeTemp(interaction.message, "delete", 3000,1000)
+        return true;
         
     }
 

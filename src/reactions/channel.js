@@ -37,7 +37,11 @@ module.exports = {
 		confiReaction.allowedRoles.forEach((rol) => {
 			if(rolesUser.includes(rol)){
 				console.log(rol, " : ", confiReaction.action, " - ", Actions.hasOwnProperty(confiReaction.action));
-				Actions[confiReaction.action](Client, interaction, user, confiReaction)
+				const successful = Actions[confiReaction.action](Client, interaction, user, confiReaction)
+				console.log(user);
+				if(successful){
+					channel.send("<@"+user.id+">  "+confiReaction.description+" "+content[1])
+				}
 				return;
 			}
 		})
