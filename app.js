@@ -35,6 +35,7 @@ client.on('messageReactionAdd', (interaction, user) => {
 
 
 client.on("messageCreate", (msg) => {
+	console.log("msg");
 	const configGuild = Config.getConfigGuild(msg.guildId);
 	if (!configGuild) return;
 
