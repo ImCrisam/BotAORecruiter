@@ -23,7 +23,7 @@ client.once('ready', (bot) => {
 });
 
 client.on('messageReactionAdd', (interaction, user) => {
-
+	console.log("a");
 	if(user.bot) return;
 	const configGuild = Config.getConfigGuild(interaction.message.guildId);
 	if (!configGuild) return;

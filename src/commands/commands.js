@@ -34,7 +34,7 @@ module.exports = {
             const isBanAlli = await Other.isBlackListAlli(playersInfo[0].Name)
             const newMsg = await msg.guild.channels.cache.get(channelOut).send(Embeds.infoPlayer(msg.author, allInfoPlayer, isBanAlli, params))
             if (newMsg) {
-                Discordjs.respondeTemp(msg, nick +" ✅ ", 4000, 1000)
+                Discordjs.respondeTemp(msg, " ✅ "+nick , 4000, 1000)
             }
             if (isBanAlli) {
                 Discordjs.addReactionNo(newMsg);

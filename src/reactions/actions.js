@@ -8,7 +8,7 @@ module.exports = {
         const member = await Discordjs.getMemberById(Client, idNewPlayer, interaction.message.guildId)
         const addedRoll = await Discordjs.addRolesMember(member, config.memberRol)
         if (addedRoll) {
-            Discordjs.changeNickName(member, "[MDB]", interaction.message.embeds[0].title)
+            Discordjs.changeNickName(member, "[M.D.B]", interaction.message.embeds[0].title)
             interaction.message.reply('OK')
                 .then(msg => {
                     Discordjs.deleteMsg(interaction.message, 3500);

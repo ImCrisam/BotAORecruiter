@@ -14,8 +14,10 @@ module.exports = {
 		const channel = await Client.channels.cache.get(channelID);
 		const msg = await channel.messages.fetch(interaction.message.id)
 
+		const content = msg.content.split(" ");
+		console.log(content);
 
-		const confiReaction = msg.content ? config.reactions[msg.content.toLowerCase()][interaction._emoji.name] : undefined
+		const confiReaction = content[0] ? config.reactions[content[0].toLowerCase()][interaction._emoji.name] : undefined
 		if (!confiReaction){
 			console.log("conf reaction.action not found");
 			return
