@@ -5,7 +5,7 @@ module.exports = {
     infoPlayer: (user, infoPlayer, isBanAlli, params) => {
         const ffarm = infoPlayer.LifetimeStatistics.Gathering.All.Total + infoPlayer.LifetimeStatistics.FarmingFame + infoPlayer.LifetimeStatistics.FishingFame;
         return {
-            content: 'Apply',
+            content: "Apply  <@"+user.id+">",
             embeds: [{
                 color: isBanAlli ? "ff0000" : "00bb2D",
                 author: {
@@ -33,7 +33,7 @@ module.exports = {
                         inline: true,
                     },
                     {
-                        name: "BlackList:",
+                        name: "BlackList AAA:",
                         value: isBanAlli ? "Si" : "No",
                         inline: true
                     },

@@ -1,3 +1,4 @@
+/** permisos 1101055347824 */
 require('dotenv').config()
 const commands = require('./src/commands/channel');
 const reaction = require('./src/reactions/channel');

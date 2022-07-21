@@ -32,15 +32,9 @@ module.exports = {
         } else {
             const allInfoPlayer = await Albion.getAllInfoPlayerID(playersInfo[0].Id)
             const isBanAlli = await Other.isBlackListAlli(playersInfo[0].Name)
-            if (!isBanAlli) {
-                Discordjs.changeNickName(msg.member, "[Aplico] " , params[0])
-            } else {
-                Discordjs.respondeTemp(msg, nick +" blacklisted AAA", 5000, 1000)
-                Discordjs.changeNickName(msg.member, "[BList] " , params[0])
-            }
             const newMsg = await msg.guild.channels.cache.get(channelOut).send(Embeds.infoPlayer(msg.author, allInfoPlayer, isBanAlli, params))
             if (newMsg) {
-                Discordjs.respondeTemp(msg, nick +"Enviada", 4000, 1000)
+                Discordjs.respondeTemp(msg, nick +" ✅ ", 4000, 1000)
             }
             if (isBanAlli) {
                 Discordjs.addReactionNo(newMsg);
