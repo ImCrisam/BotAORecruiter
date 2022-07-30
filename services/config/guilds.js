@@ -8,6 +8,8 @@ module.exports = {
                     "roles": {
                         "none": "apply",
                     },
+                    "minPVE":"50000000",
+                    "minPVP":"5000000",
                     "outChannel": "992556524276818071"
                 },
                 "default": {
@@ -27,6 +29,7 @@ module.exports = {
                         "action": "apply",
                         "allowedRoles": ["992606523849183332"],
                         "memberRol": "983425697592770651"
+                        
                     },
                     "❌": {
                         "description": "delete apply",

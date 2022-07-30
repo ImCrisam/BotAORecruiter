@@ -11,7 +11,7 @@ module.exports = {
         //msg.reply("✅")
     },
 
-    apply: async (msg, params, channelOut) => {
+    apply: async (msg, params, config) => {
         if (params.length == 0) {
             Discordjs.respondeTemp(msg, "Empty Nick", 4000, 1000)
         }
@@ -30,17 +30,31 @@ module.exports = {
             Discordjs.respondeTemp(msg, res, 10000, 2000)
             
         } else {
+            let isApplyConfim = false
             const allInfoPlayer = await Albion.getAllInfoPlayerID(playersInfo[0].Id)
+
+            isApplyConfim = allInfoPlayer.LifetimeStatistics.PvE > config.minPVE
+            isApplyConfim = allInfoPlayer.KillFame > config.minPVP
+           
             const isBanAlli = await Other.isBlackListAlli(playersInfo[0].Name)
-            const newMsg = await msg.guild.channels.cache.get(channelOut).send(Embeds.infoPlayer(msg.author, allInfoPlayer, isBanAlli, params))
-            if (newMsg) {
-                Discordjs.respondeTemp(msg, " ✅ "+nick , 4000, 1000)
+
+            if (isApplyConfim) {
+                try {
+                    const newMsg = await msg.guild.channels.cache.get(config.outChannel).send(Embeds.infoPlayer(msg.author, allInfoPlayer, isBanAlli, params))
+                    if (newMsg) {
+                        Discordjs.respondeTemp(msg, " ✅ "+nick , 4000, 1000)
+                    }
+                    Discordjs.addReactionYesNo(newMsg);
+                    
+                } catch (error) {
+                    console.log(error);
+                }
+                
+            }else{
+                Discordjs.respondeTemp(msg, "requirement not met", 4000, 1000)
             }
-            if (isBanAlli) {
-                Discordjs.addReactionNo(newMsg);
-            } else {
-                Discordjs.addReactionYesNo(newMsg);
-            }
+
+
 
         }
 

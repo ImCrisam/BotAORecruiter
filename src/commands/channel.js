@@ -17,7 +17,7 @@ module.exports = {
 		Utils.getRolesByMsg(msg).forEach(rol => {
 			console.log(rol, " : ", config.roles[rol], " - ", Commands.hasOwnProperty(config.roles[rol]));
 			if (Commands.hasOwnProperty(config.roles[rol]) && !executed.includes(config.roles[rol])) {
-				Commands[config.roles[rol]](msg, content, config.outChannel)
+				Commands[config.roles[rol]](msg, content, config)
 				executed.push(config.roles[rol])
 			}
 		});
